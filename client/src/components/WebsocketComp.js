@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 
-let ws = new WebSocket('ws://localhost:5000/api')
-
 class WebsocketComp extends Component {
+  ws = new WebSocket('ws://localhost:5000/api')
   state = {
-    input:''
+    input:'',
+    messages:''
   }
 
   componentDidMount() {
-    ws.onmessage = function(msg) {
+    this.ws.onopen = () => {
+      console.log('the websocket is open')
+    }
+    this.ws.onmessage = function(msg) {
       console.log(msg)
     }
   }
@@ -18,7 +21,7 @@ class WebsocketComp extends Component {
   }
 
   onClick = () => {
-    ws.send(this.state.input)
+    this.ws.send(this.state.input)
   }
 
   render() {

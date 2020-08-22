@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import WebsocketComp from './components/WebsocketComp';
 import './App.css';
 
