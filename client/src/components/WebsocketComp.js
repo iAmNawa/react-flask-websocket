@@ -4,7 +4,7 @@ class WebsocketComp extends Component {
   ws = new WebSocket('ws://localhost:5000/api')
   state = {
     input:'',
-    messages:''
+    messages:[]
   }
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class WebsocketComp extends Component {
       <div>
         <input onChange={this.onChange} value={this.state.input}></input>
         <button onClick={this.onClick}>Click me</button>
-        <h1>{this.state.messages}</h1>
+        {this.state.messages.map(x => <h1>{x}</h1>)}
       </div>
     )
   }
