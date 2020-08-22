@@ -11,8 +11,9 @@ class WebsocketComp extends Component {
     this.ws.onopen = () => {
       console.log('the websocket is open')
     }
+    let that = this
     this.ws.onmessage = function(msg) {
-      console.log(msg.data)
+      that.setState({ messages: that.state.messages.concat(msg.data) })
     }
   }
 
@@ -29,6 +30,7 @@ class WebsocketComp extends Component {
       <div>
         <input onChange={this.onChange} value={this.state.input}></input>
         <button onClick={this.onClick}>Click me</button>
+        <h1>{this.state.messages}</h1>
       </div>
     )
   }
