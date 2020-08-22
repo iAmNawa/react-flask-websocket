@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class WebsocketComp extends Component {
   ws = new WebSocket('ws://localhost:5000/api')
@@ -25,11 +26,19 @@ class WebsocketComp extends Component {
     this.ws.send(this.state.input)
   }
 
+  onClickGet = () => {
+    axios.get('http://localhost:5000/get-request')
+      .then(res => {
+        this.setState({ messages: this.state.messages.concat(res.data) })
+      })
+  }
+
   render() {
     return (
       <div>
         <input onChange={this.onChange} value={this.state.input}></input>
-        <button onClick={this.onClick}>Click me</button>
+        <button onClick={this.onClick}>Websocket add to messages</button>
+        <button onClick={this.onClickGet}>Get request add to messages</button>
         {this.state.messages.map(x => <h1 key={Math.random()}>{x}</h1>)}
       </div>
     )
