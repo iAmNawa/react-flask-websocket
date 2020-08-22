@@ -12,7 +12,7 @@ class WebsocketComp extends Component {
       console.log('the websocket is open')
     }
     this.ws.onmessage = function(msg) {
-      console.log(msg)
+      console.log(msg.data)
     }
   }
 
