@@ -14,6 +14,7 @@ def api():
         ws = request.environ['wsgi.websocket']
         while True:
             message = ws.receive()
+            print(message)
             ws.send(message)
     return
 
