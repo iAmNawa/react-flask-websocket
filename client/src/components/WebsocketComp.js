@@ -27,7 +27,7 @@ class WebsocketComp extends Component {
   }
 
   onClickGet = () => {
-    axios.get('http://localhost:5000/get-request')
+    axios.get(`http://localhost:5000/get-request?userinput=${this.state.input}`)
       .then(res => {
         this.setState({ messages: this.state.messages.concat(res.data) })
       })
