@@ -20,5 +20,5 @@ def api():
 
 @app.route('/get-request')
 def get_request():
-    print('get request')
+    db.insert({'hello': 'hello'})
     return ('hello')
