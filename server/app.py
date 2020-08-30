@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 from flask_cors import CORS
 from tinydb import TinyDB, Query
 db = TinyDB('./db/db.json')
+db2 = TinyDB('./db/questions.db')
 
 app = Flask(__name__)
 CORS(app)
@@ -25,5 +26,6 @@ def get_request():
 
 @app.route('/query-db')
 def query_db():
-
+    Question = Query()
+    print(db2.search(Question.question1 == 'test'))
     return ('hello')
