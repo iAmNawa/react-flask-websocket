@@ -27,5 +27,6 @@ def get_request():
 @app.route('/query-db')
 def query_db():
     Question = Query()
-    print(db2.search(Question.question == 'one'))
-    return ('hello')
+    actual_ques = db2.search(Question.question_num == 'one')[0]
+    print(actual_ques)
+    return (actual_ques)
