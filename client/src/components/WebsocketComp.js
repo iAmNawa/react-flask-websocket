@@ -33,12 +33,20 @@ class WebsocketComp extends Component {
       })
   }
 
+  queryDB = () => {
+    axios.get('http://localhost:5000/query-db')
+      .then(res => {
+        console.log(res)
+      })
+  }
+
   render() {
     return (
       <div>
         <input onChange={this.onChange} value={this.state.input}></input>
         <button onClick={this.onClick}>Websocket add to messages</button>
         <button onClick={this.onClickGet}>Get request add to messages</button>
+        <button onClick={this.queryDB}>Query DB</button>
         {this.state.messages.map(x => <h1 key={Math.random()}>{x}</h1>)}
       </div>
     )
