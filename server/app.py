@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 from flask_cors import CORS
 from tinydb import TinyDB, Query
 db = TinyDB('./db/db.json')
-db2 = TinyDB('./db/questions.db')
+db2 = TinyDB('./db/questions.json')
 
 app = Flask(__name__)
 CORS(app)

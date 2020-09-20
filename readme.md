@@ -8,3 +8,8 @@ cd into client in root directory
 npm i   
 npm start     
 head to localhost:3000 in the browser
+
+## DB
+create a db directory in the server directory   
+create 2 files - db.json and questions.json   
+check app.py for how these databases are used   
